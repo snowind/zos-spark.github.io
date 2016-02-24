@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>zos-spark.github.io by zos-spark</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">zos-spark.github.io</h1>
+      <h2 class="project-tagline">Ecosystem of Tools for the IBM z/OS Platform for Apache Spark</h2>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="zos-spark" class="anchor" href="#zos-spark" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>zos-spark</h1>
+
+<p>Welcome to the dedicated GitHub organization comprised of community contributions around the <em>IBM zOS Platform for Apache Spark</em>.</p>
+
+<p>The intent of this project is to enable the development of an ecosystem of tools associated with a <strong>reference architecture</strong> that demonstrates how the <em>IBM zOS Platform for Apache Spark</em> can be combined with a variety of open source tools. Of specific interest is the combination of <a href="http://jupyter.org">Project Jupyter</a> and any NoSQL database to provide a <em>flexible and extendible</em> data processing and analytics solution.</p>
+
+<p><img src="https://ibm.box.com/shared/static/q322rz3364gqnmmr6ajontiv3aarj218.png" alt="Reference-Architecture-Diagram"></p>
+
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2>
+
+<h3>
+<a id="architecture-concepts" class="anchor" href="#architecture-concepts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Architecture Concepts</h3>
+
+<ol>
+<li>
+<em>Data Access</em>: At the center of the solution is a NoSQL database that is kept fresh with datasets from various data processing end-points and it serves as the central data source for analytical activity. </li>
+<li>
+<em>Flexibility</em>: A variety of use cases can be addressed by this solution. JSON datasets can be created using Spark jobs that handle complex data munging tasks and/or Data Scientists can perform ETL activities within notebooks across multiple datasets in the NoSQL database. Depending on skills and the requirements of a particular analytical task, users can determine when and where to preform ETL activities. </li>
+<li>
+<em>Extensibility</em>: New datasets can be injected into the NoSQL database from a variety of external datasources and/or data processing environments. For example, a separate instance of Apache Spark may be installed for use with a set of databases on distributed systems. Furthermore, users may want to run jobs that aggregate data from multiple data processing environments.<br>
+</li>
+<li>
+<em>Interoperability</em>: An ecosystem of analytical tools are appropriately positioned to interoperate with the various solution components. For instance, the <em>Scala Workbench</em> is tightly-coupled with the installation of <em>IBM zOS Platform for Apache Spark</em>.</li>
+<li>
+<em>Integration</em>: This solution should be viewed as a complimentary approach to the data processing challenges of an enterprise. Nothing in this solution alters the procedures, policies or existing programmatic approaches currently deployed. </li>
+</ol>
+
+<h3>
+<a id="architecture-considerations" class="anchor" href="#architecture-considerations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Architecture Considerations</h3>
+
+<ol>
+<li>
+<em>Managed Data Processing Environment</em>: Spark provides distributed task dispatching and scheduling. It can be used to allow data processing tasks to be submitted as batch jobs on some predefined frequency. Few users need to interact with such a managed environment for data processing jobs. Only Data Wranglers need a deep understanding of Spark and the tools necessary to integrate with it.</li>
+<li>
+<p><em>Enterprise Analytics Repository</em>: As data processing tasks are completed, the results of those jobs can be stored in a central location that is more easily accessible by a broader user community. New data sets that are produced by the Spark jobs can be refreshed or purged as desired by the system administrators or user community. Two obvious deployment topologies standout:</p>
+
+<ul>
+<li>NoSQL database deployed in a Linux on Z partition</li>
+<li>NoSQL database deployed on a distributed server </li>
+</ul>
+
+<p>In either case, the NoSQL database chosen should sport a robust set of Python and/or R libraries for manipulating data.  </p>
+</li>
+<li>
+<em>Content Format</em>: Given the various programming languages used by Data Scientists, the Enterprise Analytics Repository should embrace a data storage format, such as JSON, that is commonly supported across programming languages and data stores.</li>
+</ol>
+
+<h4>
+<a id="solution-persona" class="anchor" href="#solution-persona" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution Persona</h4>
+
+<table>
+<thead>
+<tr>
+<th>Persona</th>
+<th>Tool</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Operations Data Wrangler</td>
+<td>Spark Job Manager</td>
+<td>Combine <a href="https://github.com/spark-jobserver/spark-jobserver">Spark Job Server</a> and <a href="https://github.com/bluebreezecf/SparkJobServerClient">Spark Job Server Client</a> to provide a robust toolset for <a href="http://www.slideshare.net/EvanChan2/productionizing-spark-and-the-spark-job-server">managing the lifecycle of Spark Jobs</a>.</td>
+</tr>
+<tr>
+<td>Information Management Specialist</td>
+<td>Scala Workbench</td>
+<td>Tightly-coupled Jupyter+Spark workbench that allows Scala users with direct access to transactional systems to query, analyze and visualize enterprise data.</td>
+</tr>
+<tr>
+<td>Data Scientist</td>
+<td>Interactive Insights Workbench</td>
+<td>Open source tool for Python and R users to access datasets for analysis and insight generation.</td>
+</tr>
+</tbody>
+</table>
+
+<h4>
+<a id="solution-components" class="anchor" href="#solution-components" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Solution Components</h4>
+
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IBM zOS Platform for Apache Spark</td>
+<td>An optimized Apache Spark offering that incorporates a Spark Cluster with specialized technology from <a href="http://www.rocketsoftware.com/solutions">Rocket Software</a>.</td>
+</tr>
+<tr>
+<td>Enterprise Analytics Repository</td>
+<td>NoSQL database that stores the result of Spark Jobs in JSON format. In this solution JSON is positioned as the common point of exchange for all languages to load and manipulate.</td>
+</tr>
+<tr>
+<td>Spark Job Server</td>
+<td>Provides a REST API for submitting, running and monitoring Spark Jobs. Also enables the results of jobs to be converted to JSON format.</td>
+</tr>
+<tr>
+<td>Spark Job Server Client</td>
+<td>Java Client API for development of client GUI tools that will allow developers to easily manage Spark jobs.</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p><strong>Notes</strong>: </p>
+
+<ol>
+<li><p>Current understanding of Spark Job Server and Client repos is preliminary and warrants further investigation.</p></li>
+<li><p>It may make sense to merge the Scala Workbench and Spark Job Manager tools into a single application. </p></li>
+</ol>
+</blockquote>
+
+<h2>
+<a id="tool-development" class="anchor" href="#tool-development" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Tool Development</h2>
+
+<h3>
+<a id="scala-workbench" class="anchor" href="#scala-workbench" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Scala Workbench</h3>
+
+<ul>
+<li>
+<strong>Repo</strong>: <a href="https://github.com/zos-spark/scala-workbench">zos-spark/scala-workbench</a>
+</li>
+<li>
+<strong>Purpose</strong>: A tightly-coupled Jupyter+Spark workbench that allows Scala users with direct access to transactional systems to query, analyze and visualize enterprise data.</li>
+</ul>
+
+<h3>
+<a id="interactive-insights-workbench" class="anchor" href="#interactive-insights-workbench" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Interactive Insights Workbench</h3>
+
+<ul>
+<li>
+<strong>Repo</strong>: <a href="https://github.com/zos-spark/interactive-insights-workbench">zos-spark/interactive-insights-workbench</a>
+</li>
+<li>
+<p><strong>Purpose</strong>: A <a href="http://jupyter.org">Jupyter Notebook</a> based solution that enables the discovery of new insights through an interactive computing experience, which:</p>
+
+<ul>
+<li>Mixes code, visualizations and annotations into a living document that can be shared for reproducibility</li>
+<li>Promotes the ideation, exploration, collaboration and dissemination of information.</li>
+</ul>
+
+<p>This general purpose instance of a Jupyter Notebook environment is intended as a baseline tool for data analysis, interactive visualization, numerical computing, and high-performance computing task against real-world datasets.</p>
+</li>
+<li>
+<p><strong>Initial Scope</strong>: Develop a docker recipe for easy recreation of a Jupyter Workbench that includes Python, R and dynamic dashboard capabilities. Minimum, requirements:</p>
+
+<ul>
+<li>Support for Python, R and dynamic dashboards </li>
+<li><a href="https://github.com/jupyter/docker-stacks/wiki/Docker-Recipes#add-incubating-dashboard-declarative-widget-content-management-extensions">Baseline Recipe</a></li>
+<li>
+<a href="https://github.com/jupyter-incubator/dashboards_bundlers">Bundling of notebooks as dashboards</a> </li>
+<li>Document the deployment/usage instructions for several deployment topologies (i.e., local, on-premise-cloud) </li>
+<li>Provide sample notebooks (tutorials) that demonstrate how to connect to a NoSQL database using R and Python.</li>
+</ul>
+</li>
+</ul>
+
+      <footer class="site-footer">
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>

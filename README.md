@@ -9,8 +9,7 @@ Source for the zos-spark.github.io website.
 
 ### News
 
-* [jump-Start Spark](http://blog.ibmjstart.net/?s=spark)
-* [jump-Starty z/OS](http://blog.ibmjstart.net/?s=zos)
+* [jump-Start Spark](http://blog.ibmjstart.net/?s=apache+spark)
 
 ### Support
 

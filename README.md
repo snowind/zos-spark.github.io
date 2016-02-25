@@ -14,4 +14,4 @@ Source for the zos-spark.github.io website.
 ### Support
 
 * [IBM jStart](mailto:jstart@us.ibm.com)
-* [Rockect Software](mailto:support@rocketsoftware.com)
+* [Rocket Software](mailto:support@rocketsoftware.com)

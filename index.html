@@ -23,13 +23,15 @@
 
 <p>The intent of this GitHub organization is to enable the development of an ecosystem of tools associated with a <strong>reference architecture</strong> that demonstrates how the <em>IBM zOS Platform for Apache Spark</em> can be combined with a variety of open source tools. Of specific interest is the combination of <a href="http://jupyter.org">Project Jupyter</a> and Apache Spark to provide a <em>flexible and extendible</em> data processing and analytics solution.</p>
 
-The <em>reference architecture</em> attempts to offer a wholistic view of enterprise analytics. It serves as a discussion starter and and guide. For example, it can be used to:
+The <em>reference architecture</em> attempts to serve as a discussion starter and a guide for endeavors that are considering the use of Apache Spark. For example, it can be used to:
 <ul>
 	<li>Optimize cost removal opportunities within existing transaction processing workloads.</li>
 	<li>Optimize existing analytics pipelines with real-time (inline) ingestion of transactional events (i.e.: CICS data).</li>
 </ul>
 
 <p><img src=https://ibm.box.com/shared/static/g4a97brheiyvr74og4rtxih0789w6o0w.png" alt="Reference-Architecture-Diagram"></p>
+
+Several of the projects in this GitHub organization are used together to serve as a demonstration of the <em>reference architecture</em> as well as an integration verification test (IVT) of a new deployment of <em>IBM zOS Platform for Apache Spark</em>. For more details refer to the <a href="https://github.com/zos-spark/client-retention-demo">Client Retention Demo</a> repo.
 
 <h2>
 <a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2>
@@ -39,7 +41,7 @@ The <em>reference architecture</em> attempts to offer a wholistic view of enterp
 
 <ol>
 <li>
-<em>Data Access</em>: At the center of the solution is a Tidy Data Repository that is kept fresh with datasets from various data processing end-points and it serves as the central data source for analytical activity. This can be implemented in many ways, such as:
+<em>Data Access</em>: At the center of the solution is a Tidy Data Repository that is kept fresh with datasets from various data processing end-points and it serves as the central data source for analytical activity. This can be implemented in several ways, such as:
 <ul>
 	<li>NoSQL database, storing JSON data</li>
 	<li>Hadoop Distributed File System (HDFS) or General Parallel File System (GPFS), storing JSON files</li>

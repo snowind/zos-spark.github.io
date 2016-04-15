@@ -19,9 +19,15 @@
       <h1>
 <a id="zos-spark" class="anchor" href="#zos-spark" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>zos-spark</h1>
 
-<p>Welcome to the dedicated GitHub organization comprised of community contributions around the <em>IBM zOS Platform for Apache Spark</em>.</p>
+<p>Welcome to the dedicated GitHub organization comprised of community contributions around the <a href="http://www-03.ibm.com/systems/z/os/zos/apache-spark.html">IBM zOS Platform for Apache Spark</a>.</p>
 
-<p>The intent of this project is to enable the development of an ecosystem of tools associated with a <strong>reference architecture</strong> that demonstrates how the <em>IBM zOS Platform for Apache Spark</em> can be combined with a variety of open source tools. Of specific interest is the combination of <a href="http://jupyter.org">Project Jupyter</a> and any NoSQL database to provide a <em>flexible and extendible</em> data processing and analytics solution.</p>
+<p>The intent of this GitHub organization is to enable the development of an ecosystem of tools associated with a <strong>reference architecture</strong> that demonstrates how the <em>IBM zOS Platform for Apache Spark</em> can be combined with a variety of open source tools. Of specific interest is the combination of <a href="http://jupyter.org">Project Jupyter</a> and Apache Spark to provide a <em>flexible and extendible</em> data processing and analytics solution.</p>
+
+The <em>reference architecture</em> attempts to offer a wholistic view of enterprise analytics. It serves as a discussion starter and and guide. For example, it can be used to:
+<ul>
+	<li>Optimize cost removal opportunities within existing transaction processing workloads.</li>
+	<li>Optimize existing analytics pipelines with real-time (inline) ingestion of transactional events (i.e.: CICS data).</li>
+</ul>
 
 <p><img src=https://ibm.box.com/shared/static/g4a97brheiyvr74og4rtxih0789w6o0w.png" alt="Reference-Architecture-Diagram"></p>
 
@@ -33,7 +39,12 @@
 
 <ol>
 <li>
-<em>Data Access</em>: At the center of the solution is a NoSQL database that is kept fresh with datasets from various data processing end-points and it serves as the central data source for analytical activity. </li>
+<em>Data Access</em>: At the center of the solution is a Tidy Data Repository that is kept fresh with datasets from various data processing end-points and it serves as the central data source for analytical activity. This can be implemented in many ways, such as:
+<ul>
+	<li>NoSQL database, storing JSON data</li>
+	<li>Hadoop Distributed File System (HDFS) or General Parallel File System (GPFS), storing JSON files</li>
+</ul>
+</li>
 <li>
 <em>Flexibility</em>: A variety of use cases can be addressed by this solution. JSON datasets can be created using Spark jobs that handle complex data munging tasks and/or Data Scientists can perform ETL activities within notebooks across multiple datasets in the NoSQL database. Depending on skills and the requirements of a particular analytical task, users can determine when and where to preform ETL activities. </li>
 <li>
